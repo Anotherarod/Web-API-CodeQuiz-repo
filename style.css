@@ -1,7 +1,9 @@
-*, *::before, *::after {
+
+  *, *::before, *::after {
     box-sizing: border-box;
     font-family: Gotham Rounded;
   }
+  /* Give the body of the page color size(width-height) specifications  */
   
   :root {
     --hue-neutral: 200;
@@ -28,6 +30,7 @@
   body.wrong {
     --hue: var(--hue-wrong);
   }
+  /* Give the container of the button(grid) color size(width-height) specifications  */
   
   .container {
     width: 400px;
@@ -73,7 +76,7 @@
     font-weight: bold;
     padding: 10px 20px;
   }
-  
+    /* Center the buttons page  */
   .controls {
     display: flex;
     justify-content: center;
