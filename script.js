@@ -23,7 +23,7 @@ nextButton.addEventListener('click', () => {
   setNextQuestion()
 })
 
-// Create a functions to start the game and cycle through the game
+// Create functions to start the game and cycle through the game
 function myTimer() {
   timerCount -- 
   timerDisplay.innerText = timerCount
@@ -101,5 +101,113 @@ function selectAnswer(e) {
   else {
     timerCount -= 10
     
-  }
+  
+}setStatusClass(document.body, correct)
+Array.from(answerButtonsElement.children).forEach(button => {
+  setStatusClass(button, button.dataset.correct)
+})
+if (shuffledQuestions.length > currentQuestionIndex + 1) {
+  nextButton.classList.remove('hide')
+} else {
+  startButton.innerText = 'Restart'
+  startButton.classList.remove('hide')
 }
+}
+
+function setStatusClass(element, correct) {
+clearStatusClass(element)
+if (correct) {
+  element.classList.add('correct')
+} else {
+  element.classList.add('wrong')
+}
+}
+
+function clearStatusClass(element) {
+element.classList.remove('correct')
+element.classList.remove('wrong')
+}
+
+
+var questions = [
+{
+  question: 'What year was the federal reserve act signed?',
+  answers: [
+    { text: '1929', correct: false },
+    { text: '1913', correct: true },
+    { text: '1901', correct: false },
+    { text: '1890', correct: false },
+  ]
+},
+{
+  question: 'How many ounces are in a pound?',
+  answers: [
+    { text: '8', correct: false },
+    { text: '21', correct: false },
+    { text: '16', correct: true },
+    { text: '10', correct: false }
+  ]
+},
+{
+  question: 'When was citizens united signed into law?',
+  answers: [
+    { text: '2001', correct: false },
+    { text: '1996', correct: false },
+    { text: '2010', correct: true },
+    { text: '1991', correct: false }
+  ]
+},
+{
+  question: 'Who invented the light bulb?',
+  answers: [
+    { text: 'Joseph Swan', correct: true },
+    { text: 'Thomas Edison', correct: false },
+    { text: 'Nikola Tesla', correct: false },
+    { text: 'Benjamin Franklin', correct: false }
+  ]
+  
+  
+},
+ {
+  question: 'What country Alan Turing from?',
+  answers: [
+    { text: 'Egypt', correct: false },
+    { text: 'United Kingdom', correct: true },
+    { text: 'Germany', correct: false },
+    { text: 'Australia', correct: false }
+  ]
+  
+  
+},
+{
+  question: 'What is the capital California?',
+  answers: [
+    { text: 'San Francisco', correct: false },
+    { text: 'San Diego', correct: false },
+    { text: 'Bakersfield', correct: false },
+    { text: 'Sacramento', correct: true }
+  ]
+  
+  
+},
+{
+  question: 'Who did Wiley Coyote always try and capture?',
+  answers: [
+    { text: 'The Roadrunner', correct: true },
+    { text: 'Daffy Duck', correct: false },
+    { text: 'Pepe Le Pew', correct: false },
+    { text: 'Bugs Bunny', correct: false }
+  ]
+  
+  
+}
+
+
+    
+
+
+
+
+
+
+]
