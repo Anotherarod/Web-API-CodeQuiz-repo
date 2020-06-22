@@ -18,5 +18,7 @@ Script.js:
 
 Add getelementbyid to pull html element strings and provide a function for them
 
-Add eventlistener to so the variables used is recognized when user clicks the prompt to begin game
+Add eventlistener to so the variables used will recognize when user clicks the prompt to begin game
+
+Set timer and add function for score count and to increment score by 1
 

@@ -11,6 +11,9 @@
     --hue-correct: 145;
   }
   
+    
+  
+  
   body {
     --hue: var(--hue-neutral);
     padding: 0;
@@ -22,14 +25,14 @@
     align-items: center;
     background-color: hsl(var(--hue), 100%, 20%);
   }
-  
+/*   
   body.correct {
     --hue: var(--hue-correct);
   }
   
   body.wrong {
     --hue: var(--hue-wrong);
-  }
+  } */
   /* Give the container of the button(grid) color size(width-height) specifications  */
   
   .container {
@@ -44,7 +47,7 @@
   .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 10px;
+    gap: 20px;
     margin: 20px 0;
   }
   
@@ -86,3 +89,24 @@
   .hide {
     display: none;
   }
+
+  .score-count-display {
+    padding: 20px;
+        width: 100px;
+        margin: 20px;
+    background-color: white;
+    float: right;
+  }
+
+.timer-display{
+  padding: 20px;
+  width: 100px;
+  margin: 20px;
+    background-color: white;
+    float: left;
+   
+ }
+
+
+  
+

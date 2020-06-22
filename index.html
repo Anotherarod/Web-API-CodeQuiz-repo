@@ -8,28 +8,33 @@
     <title>Web API Quiz Homework</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+
 </head>
   <body class>
 <!--Create a container for questions(with a id question container) and asnwers buttons and button grid-->
-<div class="container">
+
+<div class="container timer-display" id="timer-display">1:00</div>
+    
+    <div class="container">
     <div id="question-container" class="hide">
         <div id="question">Question</div>
     <div id="answer-buttons" class="btn-grid">     
-            <button class="btn">Answer 1</button>
+            <!-- <button class="btn">Answer 1</button>
             <button class="btn">Answer 2</button>
             <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
+            <button class="btn">Answer 4</button> -->
         </div>
     </div>
     <!--Create class for start/next buttons for quiz-->
         <div class="controls">
                  <button id="start-btn" class="start-btn btn">Start</button>   
                  <button id="next-btn" class="next-btn btn hide">Next</button>
+                 
                 </div>
             </div>
+<div class= "container score-count-display" id= "score-count-display" value= "0"></div>
 
-
-
+           
 
    
     
