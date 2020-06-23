@@ -9,6 +9,9 @@ var scoreCountDisplay = document.getElementById('score-count-display')
 var restartButton = document.getElementById('restart-btn')
 var timerDisplay = document.getElementById ('timer-display')
 var answersButtonElement= document.querySelector('btn')
+var nameElement = document.getElementById("name")
+var submitBtn = document.getElementById("submit")
+var scorePage = document.getElementById("end-screen-scorepage")
 // Create a variable(let) to make the questions(children elements) random from the choices created
 
 
@@ -25,28 +28,31 @@ nextButton.addEventListener('click', () => {
 
 // Create functions to start the game and cycle through the game
 function myTimer() {
+
+  
   timerCount -- 
   timerDisplay.innerText = timerCount
   if (timerCount <= 0){ 
     alert ("Times Up!");
+   
     clearInterval(intervalId);
   }
 
   
 } 
 function run() {
-  clearInterval(intervalId);
+  
   intervalId = setInterval(myTimer, 1000);
 }
 
-
+//set startGame function and use math.random to shufflequestions within a questions.sort element
 function startGame() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   scoreCount = 0
-  scoreCountDisplay.innerText = "score count:" + scoreCount;
+  scoreCountDisplay.innerText = "score:  " + scoreCount;
   timerCount = 60
   timerDisplay.innerText = timerCount
   run()
@@ -94,7 +100,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   if (correct) {
     scoreCount ++
-    scoreCountDisplay.innerText = "score count:" + scoreCount;
+    scoreCountDisplay.innerText = "score:  " + scoreCount;
     timerCount += 5
     
   }
@@ -109,6 +115,8 @@ Array.from(answerButtonsElement.children).forEach(button => {
 if (shuffledQuestions.length > currentQuestionIndex + 1) {
   nextButton.classList.remove('hide')
 } else {
+  scorePage.classList.remove('hide')
+  clearInterval(intervalId)
   startButton.innerText = 'Restart'
   startButton.classList.remove('hide')
 }
@@ -127,6 +135,51 @@ function clearStatusClass(element) {
 element.classList.remove('correct')
 element.classList.remove('wrong')
 }
+//Create a separate HTML and link
+function saveHighScore(){
+    var name = nameElement.value.trim();
+  if (name !== ""){
+    var highScore = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var newUserScore = {
+      score: scoreCount,
+      name:name
+
+    }
+    highScore.push(newUserScore)
+    window.localStorage.setItem("highscores", JSON.stringify(highScore))
+  }
+  window.location.href = "scores.html"
+
+}
+
+submitBtn.onclick = saveHighScore;//links with submit in html
+
+  function pressEnter(event){
+    if (event.key === "enter"){
+      saveHighScore()
+    }
+
+  }
+
+
+//JSON with localStorage and highscore display
+ function displayHighScore(){
+  var highScore = JSON.parse(window.localStorage.getItem("highscores")) || [];
+  highScore.sort(function(a, b){
+  return b.newUserScore - a.newUserScore
+  })
+  highScore.forEach(function(newUserScore) {
+    // create li tag for each high score
+    var liTag = document.createElement("li");
+    liTag.textContent = newUserScore.initials + " - " + newUserScore.score;
+    // display on page
+    var olEl = document.getElementById("highscores");
+    olEl.appendChild(liTag);
+  });
+//need to call display high scores
+  
+ }
+
 
 
 var questions = [
