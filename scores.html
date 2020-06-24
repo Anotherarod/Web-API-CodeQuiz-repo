@@ -8,15 +8,35 @@
     <title>Web API Quiz Homework</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+    <script>
+     window.onload = function() {
+
+   
+    var highscores = window.localStorage.getItem("highscores");
+    highscores = JSON.parse(highscores)
+     
+    var displayHighScore = document.getElementById('highscores'); 
+    
+    
+    for(var i=0; i < highscores.length; i++){
+      
+     var newEntry = document.createElement('li'); 
+      newEntry.innerText =(highscores)[i].name + " " + highscores[i].score
+      
+      displayHighScore.appendChild(newEntry);
+    }
+    }
+    </script>
+
 
 </head>
 
 <body>
-    <div class="wrapper" id="scorepage">
+    <div class="wrapper" style=color:white id="scorepage">
       <h1>Highscores</h1>
       <ol id="highscores"></ol>
       <a href="index.html"><button>Go Back</button></a>
-      <button id="clear">Clear Highscores</button>
+      
     </div>
     <script src="./script.js"></script>
     

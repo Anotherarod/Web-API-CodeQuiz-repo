@@ -42,3 +42,5 @@ JSON with localStorage and highscore display
 Call display high scores
 
 10 questions
+
+Style the text of the second html page and log highscores into the console and show the submissions in order

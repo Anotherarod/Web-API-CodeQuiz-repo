@@ -147,6 +147,7 @@ function saveHighScore(){
     }
     highScore.push(newUserScore)
     window.localStorage.setItem("highscores", JSON.stringify(highScore))
+  
   }
   window.location.href = "scores.html"
 
