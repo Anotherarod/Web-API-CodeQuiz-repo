@@ -254,7 +254,44 @@ var questions = [
   ]
   
   
+},
+{
+  question: 'Who did the hare always lose to?',
+  answers: [
+    { text: 'The Roadrunner', correct: false},
+    { text: 'Tortoise', correct: true },
+    { text: 'Elmer Fudd', correct: false },
+    { text: 'Speedy Gonzalez', correct: false }
+  ]
+  
+  
+},
+{
+  question: 'Who created Microsoft?',
+  answers: [
+    { text: 'Bill Gates', correct: true },
+    { text: 'Steve Jobs', correct: false },
+    { text: 'Elon Musk', correct: false },
+    { text: 'Mark Zuckerberg', correct: false }
+  ]
+  
+  
+},
+{
+  question: 'How many touchdowns did Al Bundy score in one game at polk High?',
+  answers: [
+    { text: '5', correct: false },
+    { text: '6', correct: false },
+    { text: '4', correct: true },
+    { text: '3', correct: false }
+  ]
+  
+  
 }
+]
+
+
+
 
 
     
@@ -264,4 +301,3 @@ var questions = [
 
 
 
-]
